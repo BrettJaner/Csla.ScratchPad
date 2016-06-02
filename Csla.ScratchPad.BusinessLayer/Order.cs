@@ -5,7 +5,7 @@ namespace Csla.ScratchPad.BusinessLayer
     [Serializable]
     public class Order : BusinessBase<Order>
     {
-        private readonly static PropertyInfo<int> OrderIdProperty = RegisterProperty<int>(x => x.OrderId);
+        public readonly static PropertyInfo<int> OrderIdProperty = RegisterProperty<int>(x => x.OrderId);
 
         public int OrderId
         {

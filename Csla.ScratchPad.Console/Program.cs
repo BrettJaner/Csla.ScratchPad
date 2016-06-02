@@ -15,13 +15,13 @@ namespace Csla.ScratchPad.Console
             container.RegisterDecorator(typeof(ISaveHandler<>), typeof(MessageBrokerSaveHandler<>));
             container.RegisterDecorator(typeof(ISaveHandler<>), typeof(TransactionalSaveHandler<>));
 
-            Csla.Server.DataPortalSelector.DataPortalServer = 
+            Csla.Server.DataPortalBroker.DataPortalServer = 
                 new SaveDispatcherDataPortal(
                     new SaveHandlerDispatcher(container.GetInstance));
 
             var order = Order.NewOrder();
 
-            order.Save();
+            order = order.Save();
         }
     }
 }
